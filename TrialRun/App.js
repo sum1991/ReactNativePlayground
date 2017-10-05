@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View,Image } from 'react-native';
+import { StyleSheet, Text, View,Image,TextInput } from 'react-native';
 
 class Greetings extends React.Component{
   render(){
@@ -29,17 +29,24 @@ class Blink extends React.Component{
 
 
 export default class App extends React.Component {
+  constructor(props)
+  {
+    super(props)
+    this.state={text:''}
+  }
+  
   render() {
     let pic ={
       uri:"https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg"
     }
-    return(<View style={{alignItems: 'center'}}>
-      <Blink text="Hello"></Blink>
-      <Blink text="Hello123"></Blink>
-      <Blink text="Hell234o"></Blink>
-      <Blink text="Hello2134"></Blink>
-      <Blink text="Hello4"></Blink>
-      <Text style={[styles.bigBlue,styles.red]}>"Hello World"</Text>
+    return(<View style={{flex:1,flexDirection:'column',justifyContent: 'space-around',}}>
+      <TextInput style={{height:20}} onChangeText={(state)=>this.setState(state)}></TextInput>
+      <Text style={{padding: 10, fontSize: 42}}>
+      {/*{this.state.text.split(' ').map((word) => word && '🍕').join(' ')}*/}
+    </Text>
+      <View style={{width:50,height:50,backgroundColor:'red'}}></View>
+      <View style={{width:50,height:50,backgroundColor:'blue'}}></View>
+      <View style={{width:50,height:50,backgroundColor:'brown'}}></View>
     </View>);
   }
 }
