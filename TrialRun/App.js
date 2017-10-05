@@ -39,6 +39,21 @@ export default class App extends React.Component {
       <Blink text="Hell234o"></Blink>
       <Blink text="Hello2134"></Blink>
       <Blink text="Hello4"></Blink>
+      <Text style={[styles.bigBlue,styles.red]}>"Hello World"</Text>
     </View>);
   }
 }
+const styles= StyleSheet.create(
+{
+  bigBlue:{
+    color:'blue',
+    fontWeight:'bold',
+   fontSize:30, 
+  },
+  red:{
+    color:'red'
+  }
+}
+
+
+)
