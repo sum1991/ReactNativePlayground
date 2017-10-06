@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View,Image,TextInput } from 'react-native';
+import { StyleSheet, Text, View,Image,TextInput,Button,Alert } from 'react-native';
 
 class Greetings extends React.Component{
   render(){
@@ -29,25 +29,36 @@ class Blink extends React.Component{
 
 
 export default class App extends React.Component {
-  constructor(props)
-  {
-    super(props)
-    this.state={text:''}
+
+
+  _onPressButton(){
+    Alert.alert("you tapped a button")
   }
   
   render() {
     let pic ={
       uri:"https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg"
     }
-    return(<View style={{flex:1,flexDirection:'column',justifyContent: 'space-around',}}>
-      <TextInput style={{height:20}} onChangeText={(state)=>this.setState(state)}></TextInput>
-      <Text style={{padding: 10, fontSize: 42}}>
-      {/*{this.state.text.split(' ').map((word) => word && '🍕').join(' ')}*/}
-    </Text>
-      <View style={{width:50,height:50,backgroundColor:'red'}}></View>
-      <View style={{width:50,height:50,backgroundColor:'blue'}}></View>
-      <View style={{width:50,height:50,backgroundColor:'brown'}}></View>
-    </View>);
+    return(
+      <View style={buttonTutorials.container}>
+          <View style={buttonTutorials.buttonContainer}>
+            <Button 
+            title="First Red Button" 
+            onPress={this._onPressButton}
+            />
+          </View>
+          <View style={buttonTutorials.buttonContainer} title="First Blue Button">
+            <Button 
+            title="First Blue Button" 
+            onPress={this._onPressButton}/>
+          </View>
+          <View style={buttonTutorials.alternativeLayout} title="First green Button">
+            <Button 
+            title="First Green Button" 
+            onPress={this._onPressButton}/>
+          </View>
+      </View>
+    );
   }
 }
 const styles= StyleSheet.create(
@@ -59,6 +70,22 @@ const styles= StyleSheet.create(
   },
   red:{
     color:'red'
+  }
+}
+)
+
+const buttonTutorials= StyleSheet.create(
+{
+  container:{
+    flex:1,
+    justifyContent: 'center'
+  },
+  buttonContainer:{
+    margin:20
+  },
+  alternativeLayout:{
+    margin:20,
+    flexDirection:'row'
   }
 }
 
